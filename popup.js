@@ -23,7 +23,7 @@ var executeDetails = function(params) {
       // Storage Data
       var data = {
         key: item.querySelector(".ghx-swimlane-header").getAttribute("data-issue-key"),
-        title: item.querySelector(".ghx-heading .ghx-summary").innerText,
+        title: item.querySelector(".ghx-summary").innerText,
         subTasks: {}
       };
 
@@ -32,10 +32,18 @@ var executeDetails = function(params) {
 
         var subTask = issueSubTasks[j];
 
+        var subTaskTimeDom = subTask.querySelector(".ghx-end span");
+
+        if ( subTaskTimeDom == undefined ) {
+          var subTaskTime = '';
+        } else {
+          var subTaskTime = subTaskTimeDom.innerText;
+        }
+
         var subTaskData = {
           key: subTask.getAttribute("data-issue-key"),
-          time: subTask.querySelector(".ghx-end span").innerText,
-          title: subTask.querySelector(".ghx-issue-content .ghx-issue-fields .ghx-summary .ghx-inner").innerText,
+          time: subTaskTime,
+          title: subTask.querySelector(".ghx-summary").innerText
         };
 
         data.subTasks[subTaskData.key] = subTaskData;
@@ -64,11 +72,6 @@ var executeDetails = function(params) {
 };
 
 var executeCallback = function(response) {
-
-	console.log('response:');
-  console.log(response);
-
-  // HIDE PRELOADER
 
   // OPEN PRINT PAGE
   if ( response[0].success === true ) {
