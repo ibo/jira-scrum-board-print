@@ -1,0 +1,60 @@
+@media print{@page {size: landscape}}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font: 14px 'Arial';
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.item {
+  float:left;
+  display: block;
+  width: 25vw;
+  height: 25vh;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+.item .key {
+  float: left;
+  width: 100%;
+  height: 5vh;
+  padding: 10px;
+}
+
+.item .title {
+  float: left;
+  display: block;
+  width: 100%;
+  height: 15vh;
+  border-top:1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.item .assign {
+  float: left;
+  display: block;
+  width: 70%;
+  height: 5vh;
+  padding: 10px;
+}
+
+.item .time {
+  float: right;
+  display: block;
+  width: 30%;
+  height: 5vh;
+  padding: 10px;
+  border-left: 1px solid #333;
+  text-align: center;
+}

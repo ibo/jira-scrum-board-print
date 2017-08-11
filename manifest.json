@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "sPrint",
+  "version": "1.0",
+
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "sPrint",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "storage"
+  ]
+}
