@@ -6,6 +6,7 @@ body,html {
   height: 100%;
   width: 100%;
   font: 14px 'Arial';
+  -webkit-print-color-adjust: exact;
 }
 
 div {
@@ -20,6 +21,70 @@ div {
   border: 1px solid #333;
   box-sizing: border-box;
   page-break-after: always;
+}
+
+/* pbi base color -> 71bdea */
+.item.pbi{
+  background: #71bdea;
+  border:1px solid #fff;
+  color: #fff;
+}
+
+.item.pbi .title{
+  border-top:1px solid #fff;
+  border-bottom:1px solid #fff;
+}
+
+.item.pbi .time{
+  border-left:1px solid #fff;
+}
+
+/* development base color -> 9abc8b */
+.item.development{
+  background: #9abc8b;
+  border:1px solid #fff;
+  color: #fff;
+}
+
+.item.development .title{
+  border-top:1px solid #fff;
+  border-bottom:1px solid #fff;
+}
+
+.item.development .time{
+  border-left:1px solid #fff;
+}
+
+/* review base color -> e5857c */
+.item.review{
+  background: #e5857c;
+  border:1px solid #fff;
+  color: #fff;
+}
+
+.item.review .title{
+  border-top:1px solid #fff;
+  border-bottom:1px solid #fff;
+}
+
+.item.review .time{
+  border-left:1px solid #fff;
+}
+
+/* test base color -> 945995 */
+.item.test{
+  background: #945995;
+  border:1px solid #fff;
+  color: #fff;
+}
+
+.item.test .title{
+  border-top:1px solid #fff;
+  border-bottom:1px solid #fff;
+}
+
+.item.test .time{
+  border-left:1px solid #fff;
 }
 
 .item .key {

@@ -6,6 +6,33 @@ var executeDetails = function(params) {
     var issues       = document.querySelectorAll("#ghx-pool .ghx-swimlane");
     var localStorage = {};
 
+    var getClassName = function(title) {
+
+      var className = '';
+
+      var keywords = [
+        { name:"[Development]", class:"development" },
+        { name:"[Test]", class:"test" },
+        { name:"[Review]", class:"review" }
+      ];
+
+      for( var index in keywords ) {
+
+          var keyword = keywords[index];
+
+          if ( title.split(keyword.name).length > 1 ) {
+
+            className = keyword.class;
+            break;
+
+          }
+
+      }
+
+      return className;
+
+    };
+
     if ( issues.length < 1 ) {
 
       return { success: false };
@@ -24,6 +51,7 @@ var executeDetails = function(params) {
       var data = {
         key: item.querySelector(".ghx-swimlane-header").getAttribute("data-issue-key"),
         title: item.querySelector(".ghx-summary").innerText,
+        className: "pbi",
         subTasks: {}
       };
 
@@ -40,10 +68,14 @@ var executeDetails = function(params) {
           var subTaskTime = subTaskTimeDom.innerText;
         }
 
+        var title = subTask.querySelector(".ghx-summary").innerText;
+        var className = getClassName(title);
+
         var subTaskData = {
           key: subTask.getAttribute("data-issue-key"),
           time: subTaskTime,
-          title: subTask.querySelector(".ghx-summary").innerText
+          title: title,
+          className: className
         };
 
         data.subTasks[subTaskData.key] = subTaskData;
