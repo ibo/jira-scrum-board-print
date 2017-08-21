@@ -5,7 +5,7 @@ body,html {
   padding: 0;
   height: 100%;
   width: 100%;
-  font: 14px 'Arial';
+  font: 18px 'Arial';
   -webkit-print-color-adjust: exact;
 }
 
@@ -25,7 +25,7 @@ div {
 
 /* pbi base color -> 71bdea */
 .item.pbi{
-  background: #71bdea;
+  background: #000;
   border:1px solid #fff;
   color: #fff;
 }
@@ -41,7 +41,7 @@ div {
 
 /* development base color -> 9abc8b */
 .item.development{
-  background: #9abc8b;
+  background: #F15025;
   border:1px solid #fff;
   color: #fff;
 }
@@ -73,7 +73,7 @@ div {
 
 /* test base color -> 945995 */
 .item.test{
-  background: #945995;
+  background: #2364AA;
   border:1px solid #fff;
   color: #fff;
 }
@@ -102,7 +102,7 @@ div {
   border-top:1px solid #333;
   border-bottom: 1px solid #333;
   padding: 10px;
-  line-height: 18px;
+  line-height: 1.4em;
   font-weight: 600;
 }
 
