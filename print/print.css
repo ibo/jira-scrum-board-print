@@ -104,12 +104,13 @@ div {
   padding: 10px;
   line-height: 1.4em;
   font-weight: 600;
+  overflow: hidden;
 }
 
 .item .assign {
   float: left;
   display: block;
-  width: 70%;
+  width: 60%;
   height: 5vh;
   padding: 10px;
 }
@@ -117,7 +118,7 @@ div {
 .item .time {
   float: right;
   display: block;
-  width: 30%;
+  width: 40%;
   height: 5vh;
   padding: 10px;
   border-left: 1px solid #333;
