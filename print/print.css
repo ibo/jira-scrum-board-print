@@ -25,9 +25,9 @@ div {
 
 /* pbi base color -> 71bdea */
 .item.pbi{
-  background: #000;
+  background: #90caf9;
   border:1px solid #fff;
-  color: #fff;
+  color: #000;
 }
 
 .item.pbi .title{
@@ -41,9 +41,9 @@ div {
 
 /* development base color -> 9abc8b */
 .item.development{
-  background: #F15025;
+  background: #8bc34a;
   border:1px solid #fff;
-  color: #fff;
+  color: #000;
 }
 
 .item.development .title{
@@ -73,9 +73,9 @@ div {
 
 /* test base color -> 945995 */
 .item.test{
-  background: #2364AA;
+  background: #ffee58;
   border:1px solid #fff;
-  color: #fff;
+  color: #000;
 }
 
 .item.test .title{
