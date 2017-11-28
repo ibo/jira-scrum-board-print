@@ -1,12 +1,12 @@
 var executeParams  = {};
 
 var executeDetails = function(params) {
-
+  
     var sourceCode   = document.body;
     var issues       = document.querySelectorAll("#ghx-pool .ghx-swimlane");
     var localStorage = {};
 
-    var getClassName = function(title) {
+    var getPostItStyle = function(title) {
 
       var className = '';
 
@@ -44,46 +44,68 @@ var executeDetails = function(params) {
       // GetDomIssue
       var item = issues[i];
 
-      // GetIssueSubTasks
-      var issueSubTasks = item.querySelectorAll(".ghx-issue-subtask");
+      // Check Issue Type
+      if ( item.querySelector(".ghx-swimlane-header").classList.contains('ghx-swimlane-default') ) {
 
-      // Storage Data
-      var data = {
-        key: item.querySelector(".ghx-swimlane-header").getAttribute("data-issue-key"),
-        title: item.querySelector(".ghx-summary").innerText,
-        className: "pbi",
-        subTasks: {}
-      };
+        item.querySelectorAll(".ghx-issue").forEach(function(task) {
+          
+          // Storage Data
+          var data = {
+            key: task.getAttribute("data-issue-key"),
+            title: task.querySelector(".ghx-summary").innerText,
+            className: "pbi",
+            subTasks: {}
+          };
 
-      // IssueSubTasks
-      for ( j = 0; j < issueSubTasks.length; j++ ) {
+          // Save Object
+          localStorage[data.key] = data;
 
-        var subTask = issueSubTasks[j];
+        });
 
-        var subTaskTimeDom = subTask.querySelector(".ghx-end span");
+      } else {
 
-        if ( subTaskTimeDom == undefined ) {
-          var subTaskTime = '';
-        } else {
-          var subTaskTime = subTaskTimeDom.innerText;
-        }
-
-        var title = subTask.querySelector(".ghx-summary").innerText;
-        var className = getClassName(title);
-
-        var subTaskData = {
-          key: subTask.getAttribute("data-issue-key"),
-          time: subTaskTime,
-          title: title,
-          className: className
+        // Storage Data
+        var data = {
+          key: item.querySelector(".ghx-swimlane-header").getAttribute("data-issue-key"),
+          title: item.querySelector(".ghx-summary").innerText,
+          className: "pbi",
+          subTasks: {}
         };
 
-        data.subTasks[subTaskData.key] = subTaskData;
+        // GetIssueSubTasks
+        var issueSubTasks = item.querySelectorAll(".ghx-issue-subtask");
+
+        // IssueSubTasks
+        for ( j = 0; j < issueSubTasks.length; j++ ) {
+
+          var subTask = issueSubTasks[j];
+
+          var subTaskTimeDom = subTask.querySelector(".ghx-end span");
+
+          if ( subTaskTimeDom == undefined ) {
+            var subTaskTime = '';
+          } else {
+            var subTaskTime = subTaskTimeDom.innerText;
+          }
+
+          var title     = subTask.querySelector(".ghx-summary").innerText;
+          var className = getPostItStyle(title);
+
+          var subTaskData = {
+            key: subTask.getAttribute("data-issue-key"),
+            time: subTaskTime,
+            title: title,
+            className: className
+          };
+
+          data.subTasks[subTaskData.key] = subTaskData;
+
+        }
+
+        // Save Object
+        localStorage[data.key] = data;
 
       }
-
-      // Save Object
-      localStorage[data.key] = data;
 
     };
 
