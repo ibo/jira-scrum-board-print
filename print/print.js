@@ -21,7 +21,7 @@ window.onload = function() {
           var item = issues[index];
           var subTasks = item.subTasks;
 
-          appendIssue( item.key, item.title, "", item.className );
+          appendIssue( item.key, item.title, item.time, item.className );
 
           for( var index in subTasks ) {
 

@@ -53,6 +53,7 @@ var executeDetails = function(params) {
           var data = {
             key: task.getAttribute("data-issue-key"),
             title: task.querySelector(".ghx-summary").innerText,
+            time: task.querySelector(".ghx-end span") == undefined ? '' : task.querySelector(".ghx-end span").innerText,
             className: "pbi",
             subTasks: {}
           };
