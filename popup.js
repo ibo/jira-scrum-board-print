@@ -44,8 +44,8 @@ var executeDetails = function(params) {
       // GetDomIssue
       var item = issues[i];
 
-      // Check Issue Type
-      if ( item.querySelector(".ghx-swimlane-header").classList.contains('ghx-swimlane-default') ) {
+      // Check Issue Type (HasSubTask)
+      if ( item.querySelector(".ghx-swimlane-header") === null ) {
 
         item.querySelectorAll(".ghx-issue").forEach(function(task) {
           
