@@ -18,6 +18,7 @@ body, html {
   font-size: var(--pbi-font-size);
   font-family: var(--pbi-font-family);
   font-weight: var(--pbi-font-weight);
+  color: var(--pbi-font-color);
   border: var(--pbi-border-size) solid var(--pbi-border-color);
   background-color: var(--pbi-background-color);
 }
