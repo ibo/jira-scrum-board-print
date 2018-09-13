@@ -8,20 +8,20 @@
   </head>
   <body>
 
-    <div id="template" style="display:none;">
-
-      <div class="item {{ className }}">
+    <!-- BEGIN PBI TEMPLATE -->
+    <div id="template">
+      <div class="item">
         <div class="key">{{ key }}</div>
-        <div class="title">{{ title }}</div>
-        <div class="assign"></div>
-        <div class="time">{{ time }}</div>
+        <div class="summary">{{ summary }}</div>
+        <div class="assignee">{{ assignee }}</div>
+        <div class="estimate">{{ estimate }}</div>
       </div>
-
     </div>
+    <!-- END PBI TEMPLATE -->
 
-    <div id="data">
-
-    </div>
+    <!-- BEGIN PBI DATA -->
+    <div id="data"></div>
+    <!-- END PBI DATA -->
 
   </body>
 </html>

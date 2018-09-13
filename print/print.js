@@ -1,39 +1,46 @@
 
 window.onload = function() {
 
-  var appendIssue = function(key, title, time, className) {
+  var appendIssue = function(issue) {
 
-    var template = document.getElementById("template").innerHTML;
-    var template = template.replace("{{ key }}", key).replace("{{ title }}", title).replace("{{ time }}", time).replace("{{ className }}", className);
+    try {
 
-    document.getElementById("data").innerHTML += template;
+      var template = document.getElementById("template").innerHTML;
+      var issueKey = issue.key ? issue.key : '';
+      var summary  = issue.summary ? issue.summary : '';
+      var assignee = issue.assignee ? issue.assignee : '';
+      var estimate = '';
+      
+      if (issue.estimateStatistic !== undefined) {
+        var estimate = issue.estimateStatistic.statFieldValue.text ? issue.estimateStatistic.statFieldValue.text : '';
+      }
+
+      template = template.replace("{{ key }}", issueKey);
+      template = template.replace("{{ summary }}", summary);
+      template = template.replace("{{ assignee }}", assignee)
+      template = template.replace("{{ estimate }}", estimate);
+
+      document.getElementById("data").innerHTML += template;
+
+    } catch(e) {
+      console.log(e);
+    }
 
   };
 
   chrome.storage.local.get('issues', function(data) {
 
-      var issues   = data.issues;
+      var issues = data.issues;
 
-      console.log(issues);
-
-      for( var index in issues ) {
-
-          var item = issues[index];
-          var subTasks = item.subTasks;
-
-          appendIssue( item.key, item.title, item.time, item.className );
-
-          for( var index in subTasks ) {
-
-            var subTask = subTasks[index];
-
-            appendIssue( item.key + ' / ' + subTask.key, subTask.title, subTask.time, subTask.className );
-
-          }
-
+      if (issues.length < 1) { 
+        alert('PBI BULUNAMADI!\n"Active Sprint" veya "Kanban Board" sayfasındayken eklentiyi çalıştırmanız gerekiyor.'); 
+        return false;
       }
 
-      // PRINT
+      issues.forEach(function(issue) {
+        appendIssue(issue);
+      });
+
       window.print();
 
   });

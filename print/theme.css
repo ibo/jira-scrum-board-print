@@ -1,0 +1,13 @@
+:root {
+
+    /* COLORS & SIZES */
+    --pbi-background-color: #dfd516;
+    --pbi-border-color: #000000;
+    --pbi-border-size: 1px;
+
+    /* FONTS */
+    --pbi-font-size: 18px;
+    --pbi-font-family: 'Arial', 'Tahoma';
+    --pbi-font-weight: bold;
+
+}
