@@ -10,7 +10,7 @@ var executeDetails = function(params) {
     };
 
     var urlParams     = new URLSearchParams(window.location.search);
-    var requestParams = '?rapidViewId={rapidView}&selectedProjectKey={projectKey}'.replace('{rapidView}', urlParams.get('rapidView')).replace('{projectKey}',urlParams.get('projectKey'));
+    var requestParams = '?rapidViewId={rapidView}'.replace('{rapidView}', urlParams.get('rapidView'));
     var requestUrl    = CONFIG.JIRA_URL + CONFIG.ENDPOINT.ISSUES + requestParams;
 
     var xhr = new XMLHttpRequest();
